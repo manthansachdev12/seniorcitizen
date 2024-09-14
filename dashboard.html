@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Citizen Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+       
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: rgba(29, 8, 148, 0.8);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+header h1 {
+    font-size: 2.5em;
+}
+
+/* Navigation Styling */
+nav {
+    background-color: rgba(29, 8, 148, 0.8);
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+nav ul li a i {
+    margin-right: 8px;
+    font-size: 1.3em;
+}
+
+/* Navigation Hover Effects */
+nav ul li a:hover {
+    background-color: rgba(189, 191, 255, 0.2);
+    color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav ul li:hover::after {
+    background-color: rgba(189, 191, 255, 1);
+}
+
+nav ul li::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background-color: transparent;
+    width: 100%;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Hover Animation */
+nav ul li:hover a {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+footer {
+    background-color: rgba(29, 8, 148, 0.8);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Dashboard Section */
+main {
+    padding: 30px;
+}
+
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    row-gap: 60px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 320px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card h2 {
+    color: rgba(29, 8, 148, 0.8);
+    font-size: 1.8em;
+}
+
+.card p {
+    font-size: 1em;
+    color: #333;
+}
+.card a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+}
+
+button {
+    background-color: rgba(29, 8, 148, 0.8);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: rgba(21, 5, 106, 0.9);
+}
+
+/* Card hover effect */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(29, 8, 148, 0.2);
+    border-radius: 50%;
+    transition: top 0.5s, left 0.5s;
+}
+
+.card:hover::before {
+    top: -20px;
+    left: -20px;
+}
+.voice-assistant-btn {
+            position: fixed;
+            top: 240px;
+            right: 20px;
+            background-color: rgba(29, 8, 148, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .voice-assistant-btn:hover {
+            background-color: rgba(18, 6, 87, 0.8);
+        }
+
+        .voice-assistant-btn img {
+            width: 30px;
+            height: 30px;
+        }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin: 20px 0;
+    }
+
+    nav ul li {
+        margin-top: 500px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Senior Dashboard</h1>
+        <div id="google_element"></div>
+        <nav>
+            <ul>
+                <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="groups.html"><i class="fas fa-users"></i> Groups</a></li>
+                <li><a href="forums.html"><i class="fas fa-comments"></i> Discussions</a></li>
+                <li><a href="workshops.html"><i class="fas fa-chalkboard-teacher"></i> Workshops</a></li>
+                <li><a href="#"><i class="fas fa-bell"></i> Updates</a></li>
+                <li><a href="chat.html"><i class="fas fa-headset"></i> Support</a></li>
+                <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <button id="voice-assistant" class="voice-assistant-btn">Voice</button>
+        <i class="fas fa-microphone" style="color: white;"></i>
+    </button>
+
+    <main>
+        <section class="dashboard">
+            <div class="card" id="events-card">
+                <h2>Upcoming Events</h2>
+                <p>View and register for upcoming community activities.</p>
+                <button><a href="events.html">View Events</a></button>
+            </div>
+
+            <div class="card" id="groups-card">
+                <h2>Interest-Based Groups</h2>
+                <p>Join groups based on your hobbies and interests.</p>
+                <button><a href="groups.html">Explore Groups</a></button>
+            </div>
+
+            <div class="card" id="discussions-card">
+                <h2>Discussion Forums</h2>
+                <p>Engage in conversations with other seniors.</p>
+                <button><a href="forums.html">Join Discussions</a></button>
+            </div>
+
+            <div class="card" id="workshops-card">
+                <h2>Virtual Workshops</h2>
+                <p>Participate in skill-building and learning workshops.</p>
+                <button><a href="workshops.html"></a>View Workshops</button>
+            </div>
+            <div class="card" class="friends">
+                <h2>Chats</h2>
+                <p>Connect and chat with your friends.</p>
+                <button><a href="chat.html">Start Chatting</a></button>
+            </div>
+            <div class="card">
+                <h2>Entertainment</h2>
+                <p>Enjoy various entertainment options available.</p>
+                <button><a href="https://slowroads.io/">Explore</a></button>
+            </div>
+    
+            <!-- Card for Health Care -->
+            <div class="card">
+                <h2>Health Care</h2>
+                <p>Access health care services and information.</p>
+                <button><a href="health.html">Learn More</a></button>
+            </div>
+        </section>
+        
+
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Senior Citizen Platform</p>
+    </footer>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate">
+    </script>
+    <script>
+        function loadGoogleTranslate() {
+            new google.translate.TranslateElement("google_element");
+        }
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            const recognition = new SpeechRecognition();
+
+            // Set recognition settings
+            recognition.lang = 'en-US'; // Set language
+            recognition.interimResults = false; // Get only final results
+            recognition.maxAlternatives = 1;
+
+            // Start recognition when the button is clicked
+            const voiceButton = document.getElementById('voice-assistant');
+            voiceButton.addEventListener('click', () => {
+                recognition.start();
+            });
+
+            // Handle speech recognition results
+            recognition.addEventListener('result', (event) => {
+                const transcript = event.results[0][0].transcript.toLowerCase();
+                console.log('You said:', transcript);
+
+                // Perform actions based on recognized commands
+                if (transcript.includes('profile')) {
+                    window.location.href = 'profile.html';
+                } else if (transcript.includes('groups')) {
+                    window.location.href = 'groups.html';
+                }  else if (transcript.includes('discussion') || transcript.includes('forum')) {
+                    window.location.href = 'forums.html';
+                } else if (transcript.includes('health')) {
+                    window.location.href = 'health.html';
+                }  else if (transcript.includes('dashboard')) {
+                    window.location.href = 'dashboard.html';
+                } 
+                else if (transcript.includes('contacts')) {
+                    window.location.href = 'contact.html';
+                } else if (transcript.includes('update') || transcript.includes('news')) {
+                    window.location.href = 'fupdate.html';
+                }
+                else {
+                    alert('Command not recognized. Please try again.');
+                } 
+            });
+
+            // Error handling
+            recognition.addEventListener('error', (event) => {
+                console.error('Speech recognition error:', event.error);
+                alert('Sorry, I did not catch that. Please try again.');
+            });
+        } else {
+            alert('Sorry, your browser does not support the Web Speech API.');
+        }
+    </script>
+</body>
+</html>

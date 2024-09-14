@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Workshops</title>
+    <style>
+        /* Basic styles for the page */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    background-color: rgba(29, 8, 148, 0.8);
+    color: white;
+    padding: 20px 0;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+p {
+    margin: 0;
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+.workshop-section {
+    margin: 20px;
+}
+
+.workshop-category {
+    margin: 20px 0;
+}
+
+h2 {
+    font-size: 2rem;
+    color: rgba(29, 8, 148, 0.8);
+    text-align: center;
+}
+
+.workshop-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    color: rgba(29, 8, 148, 0.8);
+}
+
+.card p {
+    font-size: 1rem;
+    color: #333;
+    margin: 15px 0;
+}
+
+.card .btn {
+    background-color: rgba(29, 8, 148, 0.8);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.card .btn:hover {
+    background-color: rgba(29, 8, 148, 1);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(29, 8, 148, 0.8);
+    color: white;
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    .workshop-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+    }
+}
+
+    </style>
+</head>>
+<body>
+    <header>
+        <h1>Virtual Workshops</h1>
+        <p>Join live or recorded workshops to learn and engage!</p>
+    </header>
+
+    <section class="workshop-section">
+        <!-- Live Workshops -->
+        <div class="workshop-category">
+            <h2>Live Workshops</h2>
+            <div class="workshop-cards">
+                <div class="card">
+                    <h3>Live Yoga Class</h3>
+                    <p>Join our instructor for a live session of relaxing yoga.</p>
+                    <button class="btn">Join Now</button>
+                </div>
+                <div class="card">
+                    <h3>Cooking Workshop</h3>
+                    <p>Participate in a live cooking class with expert chefs.</p>
+                    <button class="btn">Join Now</button>
+                </div>
+                <div class="card">
+                    <h3>Art & Craft</h3>
+                    <p>Unleash your creativity with live art and craft sessions.</p>
+                    <button class="btn">Join Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recorded Workshops -->
+        <div class="workshop-category">
+            <h2>Recorded Workshops</h2>
+            <div class="workshop-cards">
+                <div class="card">
+                    <h3>Health & Wellness</h3>
+                    <p>Watch recorded sessions on staying fit and healthy.</p>
+                    <button class="btn">Watch Now</button>
+                </div>
+                <div class="card">
+                    <h3>Photography Basics</h3>
+                    <p>Learn the basics of photography through pre-recorded lessons.</p>
+                    <button class="btn">Watch Now</button>
+                </div>
+                <div class="card">
+                    <h3>Gardening Tips</h3>
+                    <p>Get expert tips on gardening in this recorded workshop.</p>
+                    <button class="btn">Watch Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Virtual Workshops</p>
+    </footer>
+
+    <script>
+        // Basic script for logging workshop actions (can be extended for dynamic functionality)
+document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', function() {
+        console.log(`User clicked: ${this.innerText}`);
+    });
+});
+
+    </script>
+</body>
+</html>

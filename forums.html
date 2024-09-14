@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion Forums</title>
+    <style>
+        /* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: rgba(29, 8, 148, 0.8);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background-color: rgba(29, 8, 148, 0.8);
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+nav ul li a i {
+    margin-right: 8px;
+    font-size: 1.3em;
+}
+
+/* Navigation Hover Effects */
+nav ul li a:hover {
+    background-color: rgba(189, 191, 255, 0.2);
+    color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav ul li:hover::after {
+    background-color: rgba(189, 191, 255, 1);
+}
+
+nav ul li::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background-color: transparent;
+    width: 100%;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Hover Animation */
+nav ul li:hover a {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+footer {
+    background-color: rgba(29, 8, 148, 0.8);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: static;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Main Section Styling */
+main {
+    padding: 20px;
+}
+
+.forum-section {
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.forum-section h2 {
+    color: rgba(29, 8, 148, 0.8);
+    font-size: 2em;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(29, 8, 148, 0.8);
+    padding-bottom: 10px;
+}
+
+.forum-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.forum-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: calc(50% - 20px); /* Two cards per row */
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+.forum-card:hover {
+    transform: scale(1.02);
+}
+
+.forum-card h3 {
+    color: rgba(29, 8, 148, 0.8);
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.forum-card p {
+    font-size: 1em;
+    color: #555;
+    margin: 5px 0;
+}
+
+.forum-card .btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: rgba(29, 8, 148, 0.8);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.forum-card .btn:hover {
+    background-color: rgba(21, 5, 106, 0.9);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .forum-card {
+        width: calc(100% - 20px); /* One card per row on small screens */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Discussion Forums</h1>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="groups.html">Groups</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="forum-section">
+            <div class="forum-category">
+                <h2>General Discussion</h2>
+                <div class="forum-list">
+                    <div class="forum-card">
+                        <h3>Introductions</h3>
+                        <p>Welcome to the Introductions forum! Introduce yourself and get to know other members.</p>
+                        <a href="#" class="btn">Join Discussion</a>
+                    </div>
+                    <div class="forum-card">
+                        <h3>Community News</h3>
+                        <p>Stay updated with the latest news and announcements from the community.</p>
+                        <a href="#" class="btn">Join Discussion</a>
+                    </div>
+                    <!-- Add more general discussions here -->
+                </div>
+            </div>
+            <div class="forum-category">
+                <h2>Community activities and Events</h2>
+                <div class="forum-list">
+                    <div class="forum-card">
+                        <h3>Local meetups</h3>
+                        <p>A stage for organising or discussing local in-person meetups or community activities.</p>
+                        <a href="#" class="btn">Join Discussion</a>
+                    </div>
+                    <div class="forum-card">
+                        <h3>Virtual events</h3>
+                        <p>Discuss upcoming virtual workshops, webinars,or events like yoga, cooking classes and group discussions.</p>
+                        <a href="#" class="btn">Join Discussion</a>
+                    </div>
+                    <!-- Add more technology discussions here -->
+                </div>
+            </div>
+
+            <div class="forum-category">
+                <h2>Technology</h2>
+                <div class="forum-list">
+                    <div class="forum-card">
+                        <h3>Tech Innovations</h3>
+                        <p>Discuss the latest tech innovations and trends in the industry.</p>
+                        <a href="#" class="btn">Join Discussion</a>
+                    </div>
+                    <div class="forum-card">
+                        <h3>Programming Help</h3>
+                        <p>Get help and advice on programming challenges and projects.</p>
+                        <a href="#" class="btn">Join Discussion</a>
+                    </div>
+                    <!-- Add more technology discussions here -->
+                </div>
+            </div>
+            <div class="forum-category">
+                <h2>Health care & Wellness</h2>
+                <div class="forum-list">
+                    <div class="forum-card">
+                        <h3>Physical health</h3>
+                        <p>Discussion topics around fitness routines for seniors, healthy eating, etc..</p>
+                        <a href="#" class="btn">Join Discussion</a>
+                    </div>
+                    <div class="forum-card">
+                        <h3>Mental health</h3>
+                        <p>Topics on dealing with loneliness, stress relief and memory improvement exercises</p>
+                        <a href="#" class="btn">Join Discussion</a>
+                    </div>
+                    <!-- Add more technology discussions here -->
+                </div>
+                <div class="forum-category">
+                    <h2>Hobbies & interest</h2>
+                    <div class="forum-list">
+                        <div class="forum-card">
+                            <h3>Book club</h3>
+                            <p>Seniors can discuss books they are reading and even form virtual book club.</p>
+                            <a href="#" class="btn">Join Discussion</a>
+                        </div>
+                        <div class="forum-card">
+                            <h3>Music and Movies</h3>
+                            <p>Share favourite songs, movies, all TV shows.</p>
+                            <a href="#" class="btn">Join Discussion</a>
+                        </div>
+                        <!-- Add more technology discussions here -->
+                    </div>
+                    <div class="forum-category">
+                        <h2>Life stories & Experiences</h2>
+                        <div class="forum-list">
+                            <div class="forum-card">
+                                <h3>Personal achievements</h3>
+                                <p>A place to celebrate life achievements, milestones and challenges.</p>
+                                <a href="#" class="btn">Join Discussion</a>
+                            </div>
+                            <div class="forum-card">
+                                <h3>Storytelling</h3>
+                                <p>A forum where seniors can share stories about their life, memories from childhood, work experience, etc..</p>
+                                <a href="#" class="btn">Join Discussion</a>
+                            </div>
+                            <!-- Add more technology discussions here -->
+                        </div>
+            </div>
+
+
+            <!-- Add more categories as needed -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Senior Dashboard</p>
+    </footer>
+</body>
+</html>

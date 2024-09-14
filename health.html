@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Services</title>
+    <style>
+        /* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: rgba(29, 8, 148, 0.8);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background-color: rgba(29, 8, 148, 0.8);
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+nav ul li a i {
+    margin-right: 8px;
+    font-size: 1.3em;
+}
+
+/* Navigation Hover Effects */
+nav ul li a:hover {
+    background-color: rgba(189, 191, 255, 0.2);
+    color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav ul li:hover::after {
+    background-color: rgba(189, 191, 255, 1);
+}
+
+nav ul li::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background-color: transparent;
+    width: 100%;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Hover Animation */
+nav ul li:hover a {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+footer {
+    background-color: rgba(29, 8, 148, 0.8);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: static;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Main Section Styling */
+main {
+    padding: 20px;
+}
+
+.health-section {
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.health-section h2 {
+    color: rgba(29, 8, 148, 0.8);
+    font-size: 2em;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(29, 8, 148, 0.8);
+    padding-bottom: 10px;
+}
+
+.health-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.health-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: calc(50% - 20px); /* Two cards per row */
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+.health-card:hover {
+    transform: scale(1.02);
+}
+
+.health-card h3 {
+    color: rgba(29, 8, 148, 0.8);
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.health-card p {
+    font-size: 1em;
+    color: #555;
+    margin: 5px 0;
+}
+
+.health-card .btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: rgba(29, 8, 148, 0.8);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.health-card .btn:hover {
+    background-color: rgba(21, 5, 106, 0.9);
+}
+
+.health-tips {
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.health-tips h2 {
+    color: rgba(29, 8, 148, 0.8);
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.health-tips ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.health-tips li {
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .health-card {
+        width: calc(100% - 20px); /* One card per row on small screens */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Healthcare Services</h1>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="health-section">
+            <h2>Healthcare Services</h2>
+            <div class="health-list">
+                <div class="health-card">
+                    <h3>General Checkups</h3>
+                    <p>Regular checkups to monitor your overall health and prevent potential issues.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="health-card">
+                    <h3>Chronic Disease Management</h3>
+                    <p>Support and resources for managing chronic conditions such as diabetes and hypertension.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="health-card">
+                    <h3>Mental Health Services</h3>
+                    <p>Resources and support for mental health, including counseling and therapy.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="health-card">
+                    <h3>Emergency Care</h3>
+                    <p>Access to emergency medical services and urgent care facilities.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <!-- Add more health cards here -->
+            </div>
+        </section>
+
+        <section class="health-tips">
+            <h2>Health Tips</h2>
+            <ul>
+                <li>Maintain a balanced diet rich in fruits and vegetables.</li>
+                <li>Stay hydrated by drinking plenty of water throughout the day.</li>
+                <li>Engage in regular physical activity to keep your body healthy.</li>
+                <li>Get adequate sleep each night to support overall well-being.</li>
+                <li>Regularly schedule and attend health checkups with your healthcare provider.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Senior Dashboard</p>
+    </footer>
+</body>
+</html>

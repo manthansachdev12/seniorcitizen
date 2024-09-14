@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot for All Queries</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.chat-container {
+    width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.chatbox {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.chat {
+    margin-bottom: 15px;
+}
+
+.bot-message {
+    background-color: #e9f7ef;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: left;
+    max-width: 80%;
+}
+
+.user-message {
+    background-color: #d1ecf1;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: right;
+    max-width: 80%;
+    margin-left: auto;
+}
+
+.chat-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-input input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.chat-input button {
+    width: 15%;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background-color: #218838;
+}
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <h1>Chat with our Bot</h1>
+
+    <div class="chatbox" id="chatbox">
+        <div class="chat bot-message">
+            <p>Hi! I'm your assistant. How can I help you today?</p>
+        </div>
+    </div>
+
+    <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Type your message here..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+    function sendMessage() {
+    const userInput = document.getElementById("userInput").value.trim();
+    if (!userInput) return;
+
+    addMessage(userInput, "user-message");
+    document.getElementById("userInput").value = "";
+
+    setTimeout(() => {
+        generateBotResponse(userInput);
+    }, 1000);
+}
+
+function addMessage(message, className) {
+    const chatbox = document.getElementById("chatbox");
+    const messageDiv = document.createElement("div");
+    messageDiv.classList.add("chat", className);
+    const messageText = document.createElement("p");
+    messageText.innerText = message;
+    messageDiv.appendChild(messageText);
+    chatbox.appendChild(messageDiv);
+    chatbox.scrollTop = chatbox.scrollHeight;
+}
+
+function generateBotResponse(userMessage) {
+    let botResponse = "I'm sorry, I didn't understand that. Could you clarify your request?";
+
+    const normalizedMessage = userMessage.toLowerCase();
+
+    // Define flexible response logic for common queries
+    if (normalizedMessage.includes("hello") || normalizedMessage.includes("hi")) {
+        botResponse = "Hello! How can I assist you today?";
+    } else if (normalizedMessage.includes("help")) {
+        botResponse = "Sure! You can ask me about upcoming events, health tips, or how to connect with friends.";
+    } else if (normalizedMessage.includes("events")) {
+        botResponse = "We have a yoga session and a healthy cooking class coming up this week. Check the events tab for details.";
+    } else if (normalizedMessage.includes("tips") && normalizedMessage.includes("health")) {
+        botResponse = "It's important to stay active and eat a balanced diet. How about taking a short walk today?";
+    } else if (normalizedMessage.includes("thank you") || normalizedMessage.includes("thanks")) {
+        botResponse = "You're welcome! Let me know if you need anything else.";
+    } else if (normalizedMessage.includes("bye")) {
+        botResponse = "Goodbye! Take care and see you soon!";
+    }
+
+    addMessage(botResponse, "bot-message");
+}
+</script>
+
+</body>
+</html>
